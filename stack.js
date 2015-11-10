@@ -3,16 +3,16 @@ var Node = function(data) {
     this.next = null;
 };
 
-people = ['Kayla', 'Justin', 'Brady', 'Pam', 'Eric'];
-
-var head = null;
-var oldHead = null;
-
-
 var Stack = function() {
+    var head = null;
+    var oldHead = null;
+
+    this.isEmpty = function() {
+        return head == null;
+    };
 
     this.push = function(data) {
-        tempNode = new Node(data);
+        var tempNode = new Node(data);
         if (head != null) {
             tempNode.next = head;
         }
@@ -22,23 +22,24 @@ var Stack = function() {
 
     this.pop = function() {
         oldHead = head;
-
-        if (oldHead.next != null) {
-            head = oldHead.next;
+        if (head == null) {
+            throw "Stack is empty";
         }
 
+        head = oldHead.next;
         return oldHead.data;
 
-    }
+    };
 
 };
 
 var myStack = new Stack();
 myStack.push('Hello');
 myStack.push('Hi');
-myStack.push('Greeting');
+//myStack.push('Greeting');
 var greeting = myStack.pop();
-var greeting2 = myStack.pop();
-var greeting3 = myStack.pop();
 console.log(greeting);
+var greeting2 = myStack.pop();
 console.log(greeting2);
+var greeting3 = myStack.pop();
+console.log(greeting3);
