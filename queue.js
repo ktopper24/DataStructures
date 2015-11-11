@@ -49,6 +49,10 @@ var me = myQueue.dequeue();
 console.log(me);
 var babe = myQueue.dequeue();
 console.log(babe);
+myQueue.enqueue('Pam');
+myQueue.enqueue('Eric');
+console.log(myQueue.dequeue());
+console.log(myQueue.dequeue());
 console.log(myQueue.isEmpty());
 var noOne = myQueue.dequeue();
 
